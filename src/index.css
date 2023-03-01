@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+
 
 body {
   margin: 0;
@@ -14,4 +18,238 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.arvo {
+  font-family: 'Arvo', serif;
+  ;
+}
+
+/* common css start */
+.footer-contact-links-divider {
+  width: 1px;
+  min-height: 100%;
+  margin-right: 20px;
+  margin-left: 20px;
+  background-color: rgb(255, 255, 255);
+}
+
+.rotate-180 {
+  transform: rotateX(180deg);
+}
+
+.poppins {
+  font-family: 'Poppins', sans-serif;
+}
+
+.custom-shadow {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  border: none;
+}
+
+.custom-shadow-1 {
+  box-shadow: 0 10px 20px rgb(10 10 10 / 5%);
+  -moz-box-shadow: 0 10px 20px rgba(10, 10, 10, 0.05);
+  -webkit-box-shadow: 0 10px 20px rgb(10 10 10 / 5%);
+}
+
+.service-card:hover>p {
+  /* top: 50px; */
+  transform: translateY(-190px);
+  transition: 0.2s;
+
+}
+
+.service-card p {
+  transition: 0.2s linear;
+}
+
+.service-card>img {
+  /* transition: 0.2s linear; */
+  transition: 0.6s ease-in-out;
+}
+
+.service-card:hover>img {
+  opacity: 0.5;
+  transform: scale(1.1);
+}
+
+.service-card:hover .custom-hover-width {
+  width: 100%;
+}
+
+.custom-hover-width {
+  transition: width 0.5s ease;
+}
+
+.hidden-text {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.8s linear;
+}
+
+.service-card:hover .hidden-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.service-card:hover .custom-text-box {
+  transform: translateY(0px);
+}
+
+.custom-text-box {
+  transform: translateY(40px);
+  transition: 0.5s;
+}
+
+/* common css end */
+
+/* home about section */
+.about-img .img:after {
+  content: '';
+  width: 50%;
+  position: absolute;
+  top: -6%;
+  bottom: 60%;
+  left: -3%;
+  background-image: url(https://duruthemes.com/demo/html/travol/multipage-video/img/dots.png);
+  background-repeat: repeat;
+  z-index: -1;
+}
+
+.about-img .img img {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+.about-img .img:before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  right: 0;
+  left: 45px;
+  bottom: 0;
+  background-color: #efefef;
+}
+
+.img img {
+  max-width: 100%;
+  height: auto;
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  color: #f4f5f8;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.about-img img:hover {
+  transform: scale(0.95);
+}
+
+.img {
+  padding: 0 30px 30px 15px;
+  position: relative;
+}
+
+#circle {
+  position: absolute;
+  top: -130px;
+  right: -32%;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: .99;
+  z-index: 2;
+}
+
+#circle svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 300px;
+  -webkit-animation-name: rotate;
+  animation-name: rotate;
+  -webkit-animation-duration: 8s;
+  animation-duration: 8s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+
+  to {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+}
+
+#circle text {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* login */
+
+.custom-input {
+  border-bottom: 1px solid #5c98f2;
+  width: 100%;
+}
+
+.custom-input:focus-visible {
+  outline: none;
+}
+
+/* VIDEO SECTION */
+.video-section {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  max-height: 500px;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-section::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: #0f2454;
+  opacity: 0.3;
+}
+
+/* counder-section */
+
+.counter-section::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: #0f2454;
+  opacity: 0.6;
+}
+
+.counter-section div {
+  z-index: 2;
+  position: relative;
 }

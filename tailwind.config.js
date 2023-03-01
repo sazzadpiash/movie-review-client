@@ -12,10 +12,12 @@ module.exports = {
                     ...require("daisyui/src/colors/themes")[
                         "[data-theme=light]"
                     ],
-                    primary: "#ff8b13",
-                    "primary-focus": "#FFA458",
+                    primary: "#5C98F2",
+                    // "primary-focus": "#266bd3",
+                    // "primary-hover": "#266bd3",
                 },
             },
         ],
     },
+    
 };

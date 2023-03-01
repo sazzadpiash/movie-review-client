@@ -1,18 +1,14 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 import logo from "./../../assets/images/logo/logo-no-background.png";
-import {
-    FiFacebook,
-    FiInstagram,
-    FiLinkedin,
-    FiTwitter,
-    FiYoutube,
-} from "react-icons/fi";
 
 const Header = () => {
+    const location = useLocation();
+    const { user, logOut } = useContext(AuthContext);
     return (
         <div>
-            <div className="navbar bg-[#191e25] py-6">
+            <div className="navbar bg-transparrent py-6">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -36,36 +32,11 @@ const Header = () => {
                             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                         >
                             <li>
-                                <Link>Item 1</Link>
-                            </li>
-                            <li tabIndex={0}>
-                                <Link className="justify-between">
-                                    Parent
-                                    <svg
-                                        className="fill-current"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                                    </svg>
-                                </Link>
-                                <ul className="p-2">
-                                    <li>
-                                        <Link>Submenu 1</Link>
-                                    </li>
-                                    <li>
-                                        <Link>Submenu 2</Link>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <Link>Item 3</Link>
+                                <Link to='/'>Home</Link>
                             </li>
                         </ul>
                     </div>
-                    <div className="flex gap-3">
+                    {/* <div className="flex gap-3">
                         <span className="border-[#616263]">
                             <FiFacebook className="text-[#989bad] border w-8 h-8 py-[6px] rounded-full text-xl"></FiFacebook>
                         </span>
@@ -81,32 +52,28 @@ const Header = () => {
                         <span className="border-[#616263]">
                             <FiInstagram className="text-[#989bad] border w-8 h-8 py-[6px] rounded-full text-xl"></FiInstagram>
                         </span>
-                    </div>
+                    </div> */}
+                    <Link to='/' className="btn btn-ghost h-16 normal-case text-xl">
+                        <img className="w-44 md:w-72" src={logo} alt="" />
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <Link className="btn btn-ghost h-16 normal-case text-xl">
-                        <img className="h-full" src={logo} alt="" />
-                    </Link>
+                    <ul className="menu menu-horizontal px-1 justify-center w-full">
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/">All service</Link>
+                        </li>
+                    </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="bg-primary py-2 rounded font-semibold px-5">
-                        Login
-                    </Link>
+                    {
+                        user ? <button onClick={logOut} className='bg-primary text-white py-2 rounded font-semibold px-5'>Logout</button> : <Link state={{ from: location }} replace className='bg-primary text-white py-2 rounded font-semibold px-5' to='/login'>Login</Link>
+                    }
                 </div>
             </div>
-            <div className="bg-[#191e25] text-white border-t border-gray-600 py-3">
-                <ul className="menu menu-horizontal px-1 justify-center w-full">
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/">All Movies</Link>
-                    </li>
-                    <li>
-                        <Link to="/">Contact Us</Link>
-                    </li>
-                </ul>
-            </div>
+            
         </div>
     );
 };
